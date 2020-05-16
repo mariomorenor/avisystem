@@ -13,33 +13,34 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-       $permission[] = Permission::create(['name'=>'create user']);
-       $permission[] = Permission::create(['name'=>'read user']);
-       $permission[] = Permission::create(['name'=>'update user']);
-       $permission[] = Permission::create(['name'=>'delete user']);
+       $permissions[] = Permission::create(['name'=>'create user']);
+       $permissions[] = Permission::create(['name'=>'read user']);
+       $permissions[] = Permission::create(['name'=>'update user']);
+       $permissions[] = Permission::create(['name'=>'delete user']);
         
         // Permission::create(['name'=>'create registry']);
         // Permission::create(['name'=>'read registry']);
         // Permission::create(['name'=>'update registry']);
         // Permission::create(['name'=>'delete registry']);
        
-        // Role::create([
-        //     'name'=>'superadmin',
-        //     'description'=>'Administrador'
-        // ])
+        $role = Role::create([
+            'name'=>'superadmin',
+            'description'=>'Administrador'
+        ]);
 
-        // // $role->givePermissionTo($permission);
+        $role->givePermissionTo($permissions);
 
-        // Role::create([
-        //     'name'=>'user',
-        //     'description'=>'Usuario'
-        // ])
-       
-        // Role::create([
-        //     'name'=>'admin',
-        //     'description'=>'Administrador'
-        // ])
+        $role = Role::create([
+            'name'=>'user',
+            'description'=>'Usuario'
+        ]);
 
+        $role = Role::create([
+            'name'=>'admin',
+            'description'=>'Administrador'
+        ]);
+
+        $role->givePermissionTo([$permissions[1],$permissions[2]]);
 
     }
 }
