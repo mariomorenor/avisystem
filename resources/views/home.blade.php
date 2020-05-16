@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
+@section('main')
+
+    @livewire('sidebar')
+    <div class="content">
+        @yield('content')
+    </div>
 
 @endsection

@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+    Auth::routes(['register'=>false, 'confirm'=>false,'reset'=>false]);
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
+    
+    Route::get('/', function () {
+        return redirect()->route('control');
+    });
+    
+    Route::get('/control', 'HomeController@index')->name('control');
+    Route::resource('users', 'UserController');
 
-Auth::routes(['register'=>false]);
-
-Route::get('/home', 'HomeController@index')->name('home');
