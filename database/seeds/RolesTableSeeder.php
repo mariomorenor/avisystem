@@ -17,7 +17,7 @@ class RolesTableSeeder extends Seeder
        $permission[] = Permission::create(['name'=>'read user']);
        $permission[] = Permission::create(['name'=>'update user']);
        $permission[] = Permission::create(['name'=>'delete user']);
-        dd($permission);
+        
         // Permission::create(['name'=>'create registry']);
         // Permission::create(['name'=>'read registry']);
         // Permission::create(['name'=>'update registry']);
