@@ -4,7 +4,9 @@
 
     @livewire('sidebar')
     <div class="content">
-        @yield('content')
+        <div style="margin-left: 250px; margin-top: 55px;">
+            @yield('content')
+        </div>
     </div>
 
 @endsection

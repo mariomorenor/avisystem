@@ -19,7 +19,7 @@ class UserRolesTableSeeder extends Seeder
                               // 1. superadmin
                               // 2. user
                               // 3. admin
-
+        
         $user->assignRole($roles[0]);
 
         $user = User::find(2); //El usuario con id 2 es Admin.

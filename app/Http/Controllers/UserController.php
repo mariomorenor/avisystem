@@ -27,8 +27,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        return view('user.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit')->with(['user'=>$user]);
     }
 
     /**
@@ -84,16 +84,17 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
     }
 
     public function getUsers(Request $request)
     {
         if ($request->ajax()) {
-            $users = User::all();
-
+            
+            $users = User::all()->except([Auth::id()]);
+           
             return response()->json([
-                'rows'=>$users
+                'rows'=> $users
             ]);
         }
     }

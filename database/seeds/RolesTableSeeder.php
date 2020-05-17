@@ -25,7 +25,7 @@ class RolesTableSeeder extends Seeder
        
         $role = Role::create([
             'name'=>'superadmin',
-            'description'=>'Administrador'
+            'description'=>'Master'
         ]);
 
         $role->givePermissionTo($permissions);
