@@ -1,5 +1,6 @@
 <?php
 
+use App\Lote;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(RolesTableSeeder::class);
         $this->call(UserRolesTableSeeder::class);
+        factory(Lote::class,30)->create();
 
     }
 }
