@@ -354,9 +354,12 @@ Control
 	
 	var miTermometro = new Termometro("termo", "{{ asset('img/termometro/termometro.png') }}", {height:1200, width:300}, {bottom:40, height:1080},0.4);
 		miTermometro.value(37)
+<<<<<<< HEAD
 	
 		
 
+=======
+>>>>>>> dev
 </script>
 @endsection
 

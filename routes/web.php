@@ -25,3 +25,6 @@
     Route::get('getusers', 'UserController@getUsers');
     Route::resource('users', 'UserController');
 
+    //Rutas Lote
+
+    Route::resource('lotes', 'LoteController');

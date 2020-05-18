@@ -18,7 +18,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    @yield('styles')
+
+    
+        @yield('styles_sidebar')
+        <link rel="stylesheet" href="{{ asset('css/silo-progressbar.css') }}">
     @livewireStyles
 </head>
 <body>
@@ -78,8 +81,6 @@
         @endauth
 
         @yield('main')
-        <main class="">
-        </main>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts

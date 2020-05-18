@@ -4,7 +4,7 @@
 <div class="sidebar">
     <h2>Menú</h2>
     <ul>
-        <li><a href="{{ route('control') }}">Control</a></li>
+        <li><a href="{{ route('lotes.index') }}">Control</a></li>
         <li><a href="#">Producción</a></li>
         <li><a href="#">Reportes</a></li>
         @if ( Auth::user()->hasRole('superadmin') | Auth::user()->hasRole('admin'))
@@ -13,7 +13,7 @@
     </ul>
 </div>
 
-@section('styles')
+@section('styles_sidebar')
 <style>
 
     /* SIDEBAR COMPONENT LIVEWIRE */
