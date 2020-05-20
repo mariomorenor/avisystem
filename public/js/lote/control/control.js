@@ -19,7 +19,7 @@ board.on("ready", () => {
   const thermometer = new Thermometer({
     controller: "DS18B20",
     pin: 2,
-    freq: 2000
+    freq: 1000
   });
   
   // thermometer.on("data", () => {
@@ -34,7 +34,7 @@ board.on("ready", () => {
     socket.on('temperatura', function () {
       thermometer.on("data", () => {
         const {celsius} = thermometer;
-        // console.log(celsius)
+      
        socket.emit('responseTemp', celsius );
       });
 

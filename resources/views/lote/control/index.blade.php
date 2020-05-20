@@ -3,23 +3,10 @@
 @section('content')
 <div id="control">
     <div class="container">
-        <div class="row">
-            <div class="col-5 mt-3">
-                <graficos-component></graficos-component>
-                {{-- <div id="graficoAlimentacion" class="border-dark mx-auto">
-                    <div id="silo" class="silo-progressbar"></div>
-                </div>
-                <div id="graficoTemperatura" class="border-dark mx-auto" hidden>
-                    <div id="termo" class="silo-progressbar"></div>
-                </div>
-                <div class="row mt-2" >
-                    <div class="d-flex mx-auto ">
-                        <button :disabled="picture == 'feed'? true:false" class="btn btnGrafico btn-success">Alimentación</button>
-                        <button :disabled="picture == 'temp'? true:false" class="btn btnGrafico btn-success ml-2">Temperatura</button>
-                    </div>
-                </div> --}}
-            </div>
+        <div class="" style="margin-top: 6%">
+            <graficos-component></graficos-component>
         </div>
+        
     </div>
 </div>
 @endsection
@@ -39,13 +26,18 @@
 		miTermometro.value(20)
 </script>
 <script>
-        var socket = io('http://avisystem.test:8081');
+        let url = window.location.origin;
+        let port = 8081;
         
+        var socket = io(window.location.origin+':'+port);
         $(function () {
-            setTimeout(function(){
-                socket.emit('temperatura');
-            }, 2000)
+            socket.emit('temperatura');
           })
+        // $(function () {
+        //     setTimeout(function(){
+        //         socket.emit('temperatura');
+        //     }, 2000)
+        //   })
 
           socket.on('responseTemp',(msg)=> {
                 miTermometro.value(msg);

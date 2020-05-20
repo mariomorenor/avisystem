@@ -4,8 +4,8 @@
 <div class="sidebar">
     <h2>Menú</h2>
     <ul>
-        <li><a href="{{ route('lotes.index') }}">Control</a></li>
-        <li><a href="#">Producción</a></li>
+        <li><a href="{{ route('control.index') }}">Control</a></li>
+        <li><a href="{{ route('production.index') }}">Producción</a></li>
         <li><a href="#">Reportes</a></li>
         @if ( Auth::user()->hasRole('superadmin') | Auth::user()->hasRole('admin'))
             <li><a href="{{ route('users.index') }}">Usuarios</a></li>    

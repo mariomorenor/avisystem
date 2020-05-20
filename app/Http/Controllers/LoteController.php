@@ -7,12 +7,8 @@ use Illuminate\Http\Request;
 
 class LoteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    // RUTAS CONTROL
+    public function controlLotes()
     {
         $number_of_Lotes = Lote::all()->count();
         
@@ -22,74 +18,28 @@ class LoteController extends Controller
         return view('lote.control.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Lote $lote)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Lote $lote)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Lote $lote)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Lote  $lote
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Lote $lote)
-    {
-        //
-    }
-
-    public function not_Found()
+    public function not_Found() //Funcion que se ejecuta cuando no existen lotes asignados a un control
     {
         return view('lote.control.Lotes_Sin_Asignar');   
+    }
+        // RUTAS PRODUCTION
+
+    public function productionLotes()
+    {   
+        return view('lote.production.index');
+    }
+
+    public function getLotes(Request $request)
+    {
+        if($request->ajax()){
+            $lotes_produced = Lote::all();
+
+            return response()->json([
+                'rows'=>$lotes_produced
+            ]);
+        }
+            
+       
     }
 }
