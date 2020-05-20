@@ -84,6 +84,7 @@
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
+    
     @yield('scripts')
 </body>
 </html>

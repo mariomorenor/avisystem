@@ -15,10 +15,9 @@
   </div>
 </template>
 
-
 <script>
 
-
+        
 export default {
     data() {
         return {
@@ -28,7 +27,9 @@ export default {
     methods:{
         toggle_Feed_Temperature(option){
             this.picture = option === 'feed'?'feed':'temp';
-        }
+            //  socket.emit('temperatura');
+        },
+        
     }
 }
 </script>
