@@ -11,7 +11,11 @@ window.Vue = require('vue');
 window.bootstrapTable = require('bootstrap-table');
 require('bootstrap-table/dist/locale/bootstrap-table-es-ES')
 require('@fortawesome/fontawesome-free/js/all');
-window.Swal = require('sweetalert2')
+window.Swal = require('sweetalert2');
+
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -34,5 +38,24 @@ Vue.component('graficos-component', require('./components/GraficosControlCompone
 
 const app = new Vue({
     el: '#app',
+
+    data: {
+        
+    },
+    methods: {
+
+    },
 });
  
+
+// const store = new Vuex.Store({
+//     state: {
+//         piture: 'feed'
+//     },
+//     mutations: {
+//         toggle_Feed_Temperature(option) {
+//             this.picture = option === 'feed' ? 'feed' : 'temp';
+
+//         },
+//     }
+//   })

@@ -1,9 +1,16 @@
-console.log('prueba html')
-
+console.log('resourcesxsssss')
+// var five = require("johnny-five"),board, led;
+ 
+// board = new five.Board({port: 'COM3'});
+ 
+// board.on("ready", function() {
+//   led = new five.Led(13);
+//   led.on(); 
+// });
+	
 var express = require('express');
 var app = express();
-var io = require('socket.io')(app.listen(8081));
-
+var io = require('socket.io')(app.listen(3001));
 
 
 const { Board, Thermometer } = require("johnny-five");
@@ -19,7 +26,7 @@ board.on("ready", () => {
   const thermometer = new Thermometer({
     controller: "DS18B20",
     pin: 2,
-    freq: 1000
+    freq: 2000
   });
   
   // thermometer.on("data", () => {
@@ -34,8 +41,7 @@ board.on("ready", () => {
     socket.on('temperatura', function () {
       thermometer.on("data", () => {
         const {celsius} = thermometer;
-      
-       socket.emit('responseTemp', celsius );
+        return celsius;
       });
 
       })

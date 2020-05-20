@@ -16,10 +16,9 @@
 
     
     Route::get('/', function () {
-        return redirect()->route('control');
+        return redirect()->route('control.index');
     });
     
-    Route::get('/control', 'HomeController@index')->name('control');
     
     //Rutas de Usuario
     Route::get('getusers', 'UserController@getUsers');
@@ -27,4 +26,15 @@
 
     //Rutas Lote
 
-    Route::resource('lotes', 'LoteController');
+    // Production
+    Route::group(['prefix' => 'production'], function () {
+        Route::get('/','LoteController@productionLotes')->name('production.index');
+        Route::get('getLotes','LoteController@getLotes');
+    });
+
+
+    // Control
+    Route::group(['prefix' => 'control'], function () {
+        Route::get('/', 'LoteController@controlLotes')->name('control.index');
+    });
+    
