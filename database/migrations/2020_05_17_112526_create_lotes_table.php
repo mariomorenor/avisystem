@@ -16,11 +16,10 @@ class CreateLotesTable extends Migration
         Schema::create('lotes', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->integer('quantity_male');
-            $table->integer('quantity_female');
-            $table->integer('losses_male')->default(0);
-            $table->integer('losses_female')->default(0);
+            $table->integer('quantity');
             $table->string('observation')->nullable();
+            $table->char('state')->default('W'); //A. active W. waiting F. finish
+            $table->date('date_in')->nullable(); //TODO no olvidar quitar el nullable al finalizar las pruebas
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

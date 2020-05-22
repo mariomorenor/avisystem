@@ -12,6 +12,8 @@ window.bootstrapTable = require('bootstrap-table');
 require('bootstrap-table/dist/locale/bootstrap-table-es-ES')
 require('@fortawesome/fontawesome-free/js/all');
 window.Swal = require('sweetalert2');
+window.moment = require('moment');
+require('moment/locale/es')
 
 import Vuex from 'vuex'
 
