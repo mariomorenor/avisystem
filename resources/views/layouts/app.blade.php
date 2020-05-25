@@ -85,6 +85,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
     @livewireScripts
     
-    @yield('scripts')
+    {{-- @yield('scripts') --}}
+    @stack('scripts')
+    <script>
+       
+        function hideSidebar() {
+            $('.content').toggleClass('openMenu');
+        }
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {{-- COMPONENTE DE SIDEBAR ESTE CODIGO SIRVE PARA CUALQUIER OTRO PROGRAMA ASEGURATE DE 
     AGREGAR yield("style") EN EL LAYOUT --}}
 
-<div class="sidebar">
+<div class="sidebar" >
     <h2>Menú</h2>
     <ul>
         <li><a href="{{ route('control.index') }}">Control</a></li>
@@ -12,6 +12,7 @@
         @endif
     </ul>
 </div>
+
 
 @section('styles_sidebar')
 <style>
@@ -26,6 +27,7 @@
         background: #333;
         color: #fff;
         outline: 1px solid #2a2a2a;
+       
     }
 
     .sidebar ul {

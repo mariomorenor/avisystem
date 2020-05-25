@@ -3,7 +3,7 @@
 @section('content')
     <div class="container ">
         <div class="row">
-            <div class="col-8 mt-3 mx-auto" style=" max-height: max-content" >
+            <div class="col-8 mx-auto" style=" max-height: max-content" >
                 <div>
                     <div id="toolbar">
                        @if (Auth::user()->hasRole('superadmin'))
@@ -25,7 +25,7 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script src="{{ asset('js/users.js') }}"></script>
     <script>
         
@@ -48,4 +48,4 @@
         return buttons;
 }
     </script>
-@endsection
+@endpush

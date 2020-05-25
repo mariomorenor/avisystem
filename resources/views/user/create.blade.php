@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8 mx-auto">
-                <form method="POST" class="bg-white border rounded shadow mt-3 p-2" action="{{ route('users.store') }}">
+                <form method="POST" class="bg-white border rounded shadow p-2" action="{{ route('users.store') }}">
                     @csrf
                     @livewire("user-form",['user'=>null])
             </form>
@@ -13,7 +13,7 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script>
         @if(session()->has('user_created'))
             Swal.fire({
@@ -23,6 +23,5 @@
             })
         @endif
     </script>
-@endsection
+@endpush
 
-0

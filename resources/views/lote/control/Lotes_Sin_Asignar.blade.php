@@ -114,7 +114,7 @@
 
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script>
             $("#date").val(moment().format('LL'));
             function delete_available_lote() {
@@ -131,4 +131,4 @@
                 });
             }
     </script>
-@endsection
+@endpush

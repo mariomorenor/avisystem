@@ -3,7 +3,7 @@
 @section('content')
 <div id="control">
     <div class="container">
-        <div class="" style="margin-top: 6%">
+        <div class="" >
             <graficos-component></graficos-component>
         </div>
         
@@ -12,7 +12,7 @@
 @endsection
 
 
-@section('scripts')
+@push('scripts')
 {{-- <script src="{{ asset('js/lote/control/control.js') }}"></script> --}}
 <script src="{{ asset('js/lote/control/silo-progressbar.js') }}"></script>
 <script src="{{ asset('js/lote/control/termometro.js') }}"></script>
@@ -43,5 +43,5 @@
                 miTermometro.value(msg);
           })
 </script>
-@endsection
+@endpush
 
