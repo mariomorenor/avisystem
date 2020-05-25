@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 
@@ -35,13 +36,6 @@ class UserForm extends Component
             $this->exist = true;
             $this->identifier = $user->id;
         }
-     
-    
-
-       
-        
-        
-
     }
 
     public function render()
@@ -97,7 +91,7 @@ class UserForm extends Component
         $this->user->update([
             'name'=>$validatedData['name'],
             'username'=>$validatedData['username'],
-            'password'=>$validatedData['password'],
+            'password'=>Hash::make($validatedData['password']),
         ]);
         $this->user->assignRole($validatedData['role']);
         session()->flash('user_updated', 'Usuario Actualizado Correctamente!');

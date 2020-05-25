@@ -15,6 +15,7 @@
         Route::group(['prefix' => 'production'], function () {
             Route::get('/','LoteController@productionLotes')->name('production.index');
             Route::get('getLotes','LoteController@getLotes');
+            Route::get('/lote_details/{lote}','LoteController@show')->name('production.lote_details');
 
 
         });

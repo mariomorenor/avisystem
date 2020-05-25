@@ -20,6 +20,7 @@ class CreateLotesTable extends Migration
             $table->string('observation')->nullable();
             $table->char('state')->default('W'); //A. active W. waiting F. finish
             $table->date('date_in')->nullable(); //TODO no olvidar quitar el nullable al finalizar las pruebas
+            $table->date('date_out')->nullable(); 
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

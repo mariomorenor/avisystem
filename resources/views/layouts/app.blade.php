@@ -18,9 +18,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
     
         @yield('styles_sidebar')
+        @yield('io')
         <link rel="stylesheet" href="{{ asset('css/silo-progressbar.css') }}">
     @livewireStyles
 </head>
@@ -83,7 +84,9 @@
         @yield('main')
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+
     @livewireScripts
+<<<<<<< HEAD
     
     {{-- @yield('scripts') --}}
     @stack('scripts')
@@ -93,5 +96,22 @@
             $('.content').toggleClass('openMenu');
         }
     </script>
+=======
+    <script>
+        let url = window.location.origin;
+        let port = 8081;
+        
+        var socket = io(window.location.origin+':'+port);
+        $(function () {
+            socket.emit('temperatura');
+          })
+
+          socket.on('responseTemp',(msg)=> {
+                miTermometro.value(msg);
+                console.log(msg)
+          });
+    </script>
+    @yield('scripts')
+>>>>>>> af9c08d5a452e95d06d892294fb68d057702b455
 </body>
 </html>
