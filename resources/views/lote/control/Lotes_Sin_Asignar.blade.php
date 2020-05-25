@@ -39,10 +39,10 @@
                                             </button>
                                         </form>
                                         <div class="my-auto ml-2">
-                                            <form action="{{ route('delete_lote', ['lote'=>$lote]) }}" id="form_delete_lote" method="POST">
+                                            <form action="{{ route('delete_lote', ['lote'=>$lote]) }}" id="form_delete_lote_{{$lote->id}}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="button" onclick="delete_available_lote()" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Eliminar Lote">
+                                                <button type="button" onclick="delete_available_lote({{$lote->id}})" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Eliminar Lote">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
@@ -117,7 +117,7 @@
 @section('scripts')
     <script>
             $("#date").val(moment().format('LL'));
-            function delete_available_lote() {
+            function delete_available_lote(id) {
                 Swal.fire({
                     icon: 'question',
                     title: 'Eliminar Lote Disponible?',
@@ -126,7 +126,7 @@
                     allowOutsideClick: false
                 }).then((result)=>{
                     if (result.value) {
-                        $('#form_delete_lote').submit();
+                        $('#form_delete_lote_'+id).submit();
                     }
                 });
             }

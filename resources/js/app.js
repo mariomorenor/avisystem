@@ -15,9 +15,7 @@ window.Swal = require('sweetalert2');
 window.moment = require('moment');
 require('moment/locale/es')
 
-import Vuex from 'vuex'
 
-Vue.use(Vuex)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -30,7 +28,7 @@ Vue.use(Vuex)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('graficos-component', require('./components/GraficosControlComponent.vue').default);
+Vue.component('maincontrol-component', require('./components/maincontrolComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -50,14 +48,3 @@ const app = new Vue({
 });
  
 
-// const store = new Vuex.Store({
-//     state: {
-//         piture: 'feed'
-//     },
-//     mutations: {
-//         toggle_Feed_Temperature(option) {
-//             this.picture = option === 'feed' ? 'feed' : 'temp';
-
-//         },
-//     }
-//   })

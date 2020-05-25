@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\ControlLote;
 use App\Lote;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class LoteController extends Controller
@@ -12,7 +14,7 @@ class LoteController extends Controller
     // RUTAS CONTROL
     public function controlLotes()
     {
-        $number_of_Lotes = Lote::where('state','A')->count();
+        $number_of_Lotes = ControlLote::all()->count();
         
         if($number_of_Lotes == 0)
             return $this->not_Found();//Si no existen lotes en "Control" Se muestra una vista diciendo que no hay :v
@@ -48,7 +50,15 @@ class LoteController extends Controller
 
     public function update(Lote $lote)
     {
-        $lote->update(['state'=>'A']);
+        DB::transaction(function() use ($lote){
+            $lote->update(['state'=>'A']);
+            $control_lote = new ControlLote;
+
+            $control_lote->lote_id = $lote->id;
+            $control_lote->save();
+
+        });
+
         return redirect()->back();
     }
 
@@ -60,16 +70,21 @@ class LoteController extends Controller
         return view('lote.production.index');
     }
 
+    // Listar Todos los Lotes
     public function getLotes(Request $request)
     {
         if($request->ajax()){
-            $lotes_produced = Lote::all();
+            $lotes_produced = Lote::orderBy('date_in','desc')->get();
 
             return response()->json([
                 'rows'=>$lotes_produced
             ]);
-        }
-            
-       
+        }  
+    }
+
+    // Mostrar detalles de Lote VIsta
+    public function show(Lote $lote)
+    {
+        return view('lote.production.show')->with(['lote'=>$lote]);
     }
 }

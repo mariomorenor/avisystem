@@ -1,14 +1,14 @@
 <template>
   <div>
       <div class="row">
-          <div class="col">
+          <!-- <div class="col">
               <div class="d-flex justify-content-center ">
                   <button :disabled="picture == 'feed'? true:false" @click="toggle_Feed_Temperature('feed')"
                       class="btn btnGrafico btn-success">Alimentación</button>
                   <button :disabled="picture == 'temp'? true:false" @click="toggle_Feed_Temperature('temp')"
                       class="btn btnGrafico btn-success ml-2">Temperatura</button>
               </div>
-          </div>
+          </div> -->
           <div class="col">
                 <button @click="toggle_production()" class="btn" :class="{'btn-primary': !productionActive, 'btn-danger': productionActive, }">
                     <div v-show="!productionActive">
@@ -23,15 +23,16 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-4">
-              <div v-show="picture=='feed'" class="">
+          <div class="col">
+              <div class="">
                   <div id="silo" class="silo-progressbar"></div>
               </div>
-              <div v-show="picture=='temp'" class="">
+          </div>
+          <div class="col">
+                            <div class="ml-auto">
                   <div id="termo" class="silo-progressbar"></div>
               </div>
           </div>
-          <div class="col-8"></div>
       </div>
   </div>
 </template>
@@ -68,7 +69,10 @@ export default {
             }
             
         }
-    }
+    },
+    mounted () {
+
+    },
 }
 </script>
 
