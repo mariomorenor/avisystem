@@ -24,9 +24,4 @@
 
 @push('scripts')
     <script src="{{ asset('js/lote/production/production.js') }}"></script>
-<<<<<<< HEAD
 @endpush
-=======
-    
-@endsection
->>>>>>> af9c08d5a452e95d06d892294fb68d057702b455

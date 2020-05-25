@@ -3,24 +3,14 @@
 @section('content')
 <div id="control">
     <div class="container">
-<<<<<<< HEAD
-        <div class="" >
-            <graficos-component></graficos-component>
-=======
         <div class="" style="margin-top: 6%">
             <maincontrol-component></maincontrol-component>
->>>>>>> af9c08d5a452e95d06d892294fb68d057702b455
         </div>
     </div>
 </div>
 @endsection
 
-<<<<<<< HEAD
-
-@push('scripts')
-=======
 @section('scripts')
->>>>>>> af9c08d5a452e95d06d892294fb68d057702b455
 {{-- <script src="{{ asset('js/lote/control/control.js') }}"></script> --}}
 <script src="{{ asset('js/lote/control/silo-progressbar.js') }}"></script>
 <script src="{{ asset('js/lote/control/termometro.js') }}"></script>
@@ -34,13 +24,5 @@
 		miTermometro.value(20)
 </script>
 
-<<<<<<< HEAD
-          socket.on('responseTemp',(msg)=> {
-                miTermometro.value(msg);
-          })
-</script>
-@endpush
-=======
 @endsection
->>>>>>> af9c08d5a452e95d06d892294fb68d057702b455
 

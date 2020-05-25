@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="alert alert-warning">
                             <span class="text-dark">
-                                No se está controlando ningún lote por favor, seleccione uno de los lotes disponibles o ingrese uno nuevo, para ingresar un nuevo lote, <button data-backdrop="static"  data-toggle="modal" data-target="#add_new_lote" class="btn btn-primary">presione aquí</button>
+                                No se está controlando ningún lote por favor, seleccione uno de los lotes disponibles o ingrese uno nuevo, para ingresar un nuevo lote, <button data-backdrop="static" onclick="hideSidebar()"  data-toggle="modal" data-target="#add_new_lote" class="btn btn-primary">presione aquí</button>
                             </span>
                         </div>
                     </div>

@@ -22,7 +22,7 @@
     
     .sidebar {
         position: absolute;
-        z-index: 2;
+       
         width: 250px;
         height: 100%;
         background: #333;

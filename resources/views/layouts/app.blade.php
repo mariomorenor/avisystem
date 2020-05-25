@@ -86,17 +86,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     @livewireScripts
-<<<<<<< HEAD
-    
-    {{-- @yield('scripts') --}}
-    @stack('scripts')
-    <script>
-       
-        function hideSidebar() {
-            $('.content').toggleClass('openMenu');
-        }
-    </script>
-=======
     <script>
         let url = window.location.origin;
         let port = 8081;
@@ -111,7 +100,12 @@
                 console.log(msg)
           });
     </script>
-    @yield('scripts')
->>>>>>> af9c08d5a452e95d06d892294fb68d057702b455
+    @stack('scripts')
+    <script>
+        function hideSidebar() {
+            
+        $('.content').toggleClass('openMenu');
+        }
+    </script>
 </body>
 </html>

@@ -60,6 +60,6 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script src="{{ asset('js/lote/production/reports.js') }}"></script>
-@endsection
+@endpush
