@@ -15,4 +15,14 @@ class Lote extends Model
     ];
 
     protected $guarded=['id'];
+
+    public function control()
+    {
+        return $this->hasOne(ControlLote::class,'id');
+    }
+
+    public function report()
+    {
+        return $this->hasOne(DailyReport::class,'id');
+    }
 }

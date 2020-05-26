@@ -16,7 +16,12 @@ class CreateControlLotesTable extends Migration
         Schema::create('control_lotes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lote_id')->constrained();
-            // $table->integer('');
+            $table->double('quantity_feeder',4,2)->default(1);
+            $table->double('min_quantity_feeder',4,2)->default(0.5);
+            $table->double('quantity_Silo')->default(20);
+            $table->double('min_quantity_Silo')->default(5);
+            $table->double('min_temp');
+            $table->double('max_temp');
             $table->timestamps();
         });
     }

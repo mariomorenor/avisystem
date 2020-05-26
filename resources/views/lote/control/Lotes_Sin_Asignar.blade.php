@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="alert alert-warning">
                             <span class="text-dark">
-                                No se está controlando ningún lote por favor, seleccione uno de los lotes disponibles o ingrese uno nuevo, para ingresar un nuevo lote, <button data-backdrop="static" onclick="hideSidebar()"  data-toggle="modal" data-target="#add_new_lote" class="btn btn-primary">presione aquí</button>
+                                No se está controlando ningún lote por favor, seleccione uno de los lotes disponibles o ingrese uno nuevo, para ingresar un nuevo lote, <button data-backdrop="static" onclick="hideSidebar(true)"  data-toggle="modal" data-target="#add_new_lote" class="btn btn-primary">presione aquí</button>
                             </span>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                             Código Lote: {{$lote->code}} - Cantidad de Pollos: {{$lote->quantity}}
                                         </span>
                                         
-                                        <form action="{{ route('select_lote', ['lote'=>$lote]) }}" method="post">
+                                    <form action="{{ route('select_lote', ['lote'=>$lote]) }}"  method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-success"  data-toggle="tooltip" data-placement="top" title="Seleccionar Lote">
                                                 <i class="fas fa-check-circle fa-lg"></i>
@@ -92,8 +92,20 @@
                                 <input type="date" value="{{date('Y-m-d')}}" name="date_in" hidden >
                           </div>
                           <div class="form-group">
-                              <label for="quantity">Ingrese la Cantidad Inicial:</label>
+                              <label for="quantity">Ingrese la Cantidad Inicial de Aves:</label>
                               <input type="number" placeholder="Número de Pollos" name="quantity" required class="form-control" min="1">
+                          </div>
+                          <div class="form-group">
+                              <label for="quantity">Ingrese la Cantidad Inicial de Alimento:</label>
+                              <input type="number" placeholder="Kg." name="feed" required class="form-control" min="1">
+                          </div>
+                          <div class="form-group">
+                              <label for="quantity">Ingrese la Temperatura Mínima:</label>
+                              <input type="number" placeholder="ºC" name="min_temp" required class="form-control" min="1">
+                          </div>
+                          <div class="form-group">
+                              <label for="quantity">Ingrese la Temperatura Máxima:</label>
+                              <input type="number" placeholder="ºC" name="max_temp" required class="form-control" min="1">
                           </div>
                           <div class="form-group">
                               <label for="observation">Observación:</label>
@@ -112,11 +124,13 @@
     </div>
   </div>
 
+
 @endsection
 
 @push('scripts')
     <script>
             $("#date").val(moment().format('LL'));
+
             function delete_available_lote(id) {
                 Swal.fire({
                     icon: 'question',
@@ -124,11 +138,13 @@
                     text: 'Está seguro de eliminar el Lote Disponible?',
                     showCancelButton: true,
                     allowOutsideClick: false
-                }).then((result)=>{
+                }).then((result) => {
                     if (result.value) {
-                        $('#form_delete_lote_'+id).submit();
+                        $('#form_delete_lote_' + id).submit();
                     }
                 });
             }
+
+  
     </script>
 @endpush

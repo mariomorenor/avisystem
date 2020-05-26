@@ -3,8 +3,8 @@
    width: 100%;
    height: 100%;
   
-   background: #eee;
-   margin-top: 55px;
+   background: white;
+   padding-top: 55px;
    transition: all 0.8s;
    
    
@@ -20,7 +20,6 @@
 }
 
 .menu-bar{
-   
    padding: 5px;
    cursor: pointer;
    position: absolute;

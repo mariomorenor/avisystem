@@ -80,8 +80,10 @@
             </div>
         </nav>
         @endauth
+        <div>
 
-        @yield('main')
+            @yield('main')
+        </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
 
@@ -102,9 +104,13 @@
     </script>
     @stack('scripts')
     <script>
-        function hideSidebar() {
-            
+        function hideSidebar(isActive = false) {
+            if (isActive) {
+                $('.content').removeClass('openMenu');
+            }else{
         $('.content').toggleClass('openMenu');
+
+            }
         }
     </script>
 </body>

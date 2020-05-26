@@ -6433,13 +6433,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       picture: 'feed',
-      productionActive: false
+      productionActive: false,
+      date: ''
     };
   },
+  props: ['lote'],
   methods: {
     toggle_Feed_Temperature: function toggle_Feed_Temperature(option) {
       this.picture = option === 'feed' ? 'feed' : 'temp'; //  socket.emit('temperatura');
@@ -6460,9 +6534,12 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.productionActive = this.productionActive ? false : true;
       }
-    }
+    },
+    addLosses: function addLosses() {}
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.date = moment().format('LL');
+  }
 });
 
 /***/ }),
@@ -67022,7 +67099,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "row pt-3" }, [
       _c("div", { staticClass: "col" }, [
         _c(
           "button",
@@ -67081,7 +67158,237 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-5 px-0" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Cantidad del Comedero: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.quantity_feeder,
+                      expression: "lote.control.quantity_feeder"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.quantity_feeder },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "quantity_feeder",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("Kg.")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Cantidad minima Comedero: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.min_quantity_feeder,
+                      expression: "lote.control.min_quantity_feeder"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.min_quantity_feeder },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "min_quantity_feeder",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("Kg.")])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Cantidad del Silo: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.quantity_Silo,
+                      expression: "lote.control.quantity_Silo"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.quantity_Silo },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "quantity_Silo",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("Kg.")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Cantidad min. Silo: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.min_quantity_Silo,
+                      expression: "lote.control.min_quantity_Silo"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.min_quantity_Silo },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "min_quantity_Silo",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("Kg.")])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Temperatura Máxima: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.max_temp,
+                      expression: "lote.control.max_temp"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.max_temp },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "max_temp",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("ºC")])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Temperatura Mínima: ")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "d-flex" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.lote.control.min_temp,
+                      expression: "lote.control.min_temp"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", readonly: "" },
+                  domProps: { value: _vm.lote.control.min_temp },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.lote.control,
+                        "min_temp",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { staticClass: "my-auto ml-2" }, [_vm._v("ºC")])
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -67089,17 +67396,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("div", {}, [
-          _c("div", { staticClass: "silo-progressbar", attrs: { id: "silo" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "ml-auto" }, [
-          _c("div", { staticClass: "silo-progressbar", attrs: { id: "termo" } })
-        ])
+    return _c("div", { staticClass: "col-4 px-0" }, [
+      _c("div", {}, [
+        _c("div", { staticClass: "silo-progressbar", attrs: { id: "silo" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary btn-block shadow",
+          attrs: {
+            "data-toggle": "modal",
+            "data-target": "#modal_lossesConfig",
+            "data-backdrop": "false"
+          }
+        },
+        [_vm._v("Agregar Unidades Perdidas")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 px-0" }, [
+      _c("div", { staticClass: "ml-auto" }, [
+        _c("div", { staticClass: "silo-progressbar", attrs: { id: "termo" } })
       ])
     ])
   }
